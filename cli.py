@@ -9,6 +9,7 @@ from bot.validators import *
 @click.option("--order_type", required=True)
 @click.option("--quantity", required=True)
 @click.option("--price", required=False)
+@click.option("--order_type", required=True, help="MARKET / LIMIT / STOP_LIMIT")
 
 def main(symbol, side, order_type, quantity, price):
 

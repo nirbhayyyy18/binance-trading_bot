@@ -4,8 +4,8 @@ def validate_side(side):
 
 
 def validate_type(order_type):
-    if order_type not in ["MARKET", "LIMIT"]:
-        raise ValueError("Order type must be MARKET or LIMIT")
+    if order_type not in ["MARKET", "LIMIT","STOP_LIMIT"]:
+        raise ValueError("Order type must be MARKET , LIMIT, or STOP_MARKET")
 
 
 def validate_quantity(qty):
@@ -14,5 +14,6 @@ def validate_quantity(qty):
 
 
 def validate_price(price, order_type):
-    if order_type == "LIMIT" and price is None:
-        raise ValueError("Price required for LIMIT order")
+    if order_type in ["LIMIT", "STOP_LIMIT"] and price is None:
+        raise ValueError("Price required for LIMIT or STOP_LIMIT order")
+    
